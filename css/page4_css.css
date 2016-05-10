@@ -1,0 +1,350 @@
+
+.formTitle {
+        font-size: 24px;
+        font-weight: bold;
+}
+.ColumnSize1
+{
+    width:10px;
+}
+.ColumnSize2
+{
+    width:20px;
+}
+.ColumnSize3
+{
+    width:40px;
+}
+.ColumnSize4
+{
+    width:20px;
+}
+div.DataElement
+{
+    text-align: left;
+    padding:5px;
+}
+div .rotated-text
+{
+    /*display: inline-block;*/
+    overflow: hidden;
+    
+    width: 2em;
+    line-height: 1.5;
+}
+
+div .rotated-text__inner
+{
+    display: inline-block;
+    white-space: nowrap;
+    font-size:12px;
+    font-weight:bold;
+    
+    transform: translate(0,100%) rotate(-90deg);
+    transform-origin: 0 0;
+}
+
+div .rotated-text__inner:after {
+    content: '';
+    float: left;
+    margin-top: 100%;
+}
+td{ 
+    height:30px;
+}
+
+td
+{
+    padding:3px !important;
+}
+td.index
+{
+    text-align: center;
+}
+input
+{
+    width:7em;
+	text-align:left;
+}
+
+/*Clolors*/
+.blue
+{
+    background-color: rgb(102, 154, 204);
+    padding:5px;
+}
+td.lightBlueContent
+{
+    background-color: rgb(204, 221, 237);
+    text-align: center;
+
+}
+.leftTitleblue
+{
+    background-color:#4081bf;
+}
+
+.green
+{
+    background-color: rgb(153, 204, 153);
+}
+.yorkGreenContent
+{
+    background-color: #aad5aa;
+    text-align: left;
+    
+}
+.leftTitlegreen
+{
+    background-color:#88c488;
+}
+
+.orange
+{
+    background-color: #ffa618;
+}
+.orangeContent
+{
+    background-color: #ffc365;
+    text-align: left;
+    
+}
+.leftTitleorange
+{
+    background-color:#fe9c00;
+}
+
+.redbrown
+{
+    background-color: #b7704c;
+}
+td.redBrownContent
+{
+    background-color : #999966;
+    text-align: center;
+	
+    
+}
+.leftTitleredbrown
+{
+    background-color:#a76443;
+}
+
+
+.pink
+{
+    background-color: rgb(235,199,222);
+}
+td.pinkContent
+{
+    background-color: #f2dae9;
+    text-align: left;
+   
+}
+.leftTitlepink
+{
+    background-color:#e4b4d3;
+	text-align:center;
+}
+
+
+.lightGreen
+{
+    background-color:#00cb00;
+}
+td.yorkLightGreenContent
+{
+    background-color:#00e400;
+    text-align:left;
+    
+}
+.leftTitlelightGreen
+{
+    background-color:#00b100;
+}
+
+.yellow
+{
+    background-color:#d1e400;
+	text-align:center;
+}
+td.lightYellowContent
+{
+    background-color:#FFFFCC;
+    text-align:left;
+    
+}
+.leftTitleyellow
+{
+    background-color:#bfd000;
+}
+
+.lightBrow
+{
+    background-color:#CCCC66;
+}
+td.lightBrowContent
+{
+    background-color:#d2d279;
+    text-align:center;
+    
+}
+.leftTitlelightBrow
+{
+    background-color:#c6c653;
+}
+
+.lightOrange
+{
+    background-color:#FFCC99;
+}
+td.lightOrangeContent
+{
+    background-color:#ffd9b3;
+    text-align:left;
+    
+}
+.leftTitlelightOrange
+{
+    background-color:#ffbf80;
+}
+
+.deepBlue
+{
+    background-color:#0033FF;
+    color:#FFFFFF;
+	text-align:center;
+}
+.lightBlue
+{
+    background-color:#0099FF;
+    color:#FFFFFF;
+	text-align:center;
+}
+/**********/
+
+td.blueHeadBold 
+{
+    background-color: rgb(102, 154, 204);
+    text-align: center;
+    font-weight:bold;
+}
+
+td.greenHead 
+{
+    background-color: rgb(153, 204, 153);
+    text-align: center;
+	font-weight:bold;
+}
+
+td.greenHeadBold
+{
+    background-color: #009966;
+    text-align: left;
+    font-weight:bold;
+}
+
+td.orangeHead 
+{
+    background-color: rgb(255,166,24);
+    text-align: center;
+}
+
+td.orangeHeadBold
+{
+    background-color: rgb(255,166,24);
+    text-align: left;
+    font-weight:bold;
+}
+
+td.redbrownHead 
+{
+    background-color: #b7704c;
+    text-align: center;
+}
+
+td.redbrownHeadBold 
+{
+    background-color: #b7704c;
+    text-align: center;
+    font-weight:bold;
+}
+
+td.pinkHead
+{
+    background-color: rgb(235,199,222);
+    text-align: center;
+}
+
+td.pinkHeadBold
+{
+    background-color: #9966FF;
+    text-align: left;
+    font-weight:bold;
+}
+
+
+td.lightGreenHeadBold
+{
+    background-color:#33FFCC;
+    text-align:center;
+    font-weight:bold;
+
+}
+
+td.yellowHead
+{
+
+    background-color:#FFFF33;
+    text-align:center;
+}
+
+td.yellowHeadBold
+{
+
+    background-color:#FFFF33;
+    text-align:left;
+    font-weight:bold;
+}
+
+td.lightBrowHead
+{
+    background-color:#CCCC66;
+    text-align:center;
+}
+
+td.lightBrowHeadBold
+{
+    background-color:#CCCC66;
+    text-align:center;
+    font-weight:bold;
+}
+
+td.lightOrangeHead
+{
+    background-color:#FF9966;
+    text-align:center;
+}
+
+td.lightOrangeHeadBold
+{
+    background-color:#FF9966;
+    text-align:left;
+    font-weight:bold;
+}
+
+td.deepBlueHead
+{
+    background-color:#0033FF;
+    text-align:center;
+    color:#FFFFFF;
+    font-weight:bold;
+}
+
+td.lightBlueHead
+{
+    background-color:#0099FF;
+    text-align:center;
+    color:#FFFFFF;
+    font-weight:bold;
+}
