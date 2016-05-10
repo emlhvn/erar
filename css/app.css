@@ -306,7 +306,7 @@ td.yellowHeadBold
 {
 
     background-color:#FFFF33;
-    text-align:left;
+    text-align:center;
     font-weight:bold;
 }
 
@@ -332,7 +332,7 @@ td.lightOrangeHead
 td.lightOrangeHeadBold
 {
     background-color:#FF9966;
-    text-align:left;
+    text-align:center;
     font-weight:bold;
 }
 
