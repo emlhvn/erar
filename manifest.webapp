@@ -1,12 +1,11 @@
 {
-    "version": "1.08",
+    "version": "1.12",
     "name": "Bulentin Report",
     "description": "Sample DHIS2 App",
     "launch_path": "index.html",
     "icons": {
-        "16": "",
-        "48": "",
-        "128": ""
+        "48": "icons/br-48.png",
+        "128": "icons/br-128.png"
     },
     "developer": {
         "name": "Nghia&Thai&Em",
