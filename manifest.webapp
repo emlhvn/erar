@@ -1,0 +1,21 @@
+{
+    "version": "0.3",
+    "name": "Bulentin Report",
+    "description": "Sample DHIS2 App",
+    "launch_path": "index.html",
+    "icons": {
+        "16": "",
+        "48": "",
+        "128": ""
+    },
+    "developer": {
+        "name": "Nghia&Thai&Em",
+        "url": "http://me.com"
+    },
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": "*"
+        }
+    }
+}
