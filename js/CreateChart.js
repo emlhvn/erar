@@ -127,7 +127,7 @@ function get_period_dialog(){
 							loadReport_page2(period);
 							//loadReport_page3(period);
 							loadReport_page4(period);
-							loadscreenpage_5();
+							//loadscreenpage_5();
 							setTimeout(calculatepercent, 1000);
 						});
 						
@@ -151,44 +151,21 @@ function get_period_dialog(){
 
 function loadsurveillancedata()
 { 
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:UOuRbtMVkhI;A7EalUk0veQ;SXA2Xs1o7ct;bHbGbcbNNuc;sBjxPH05QJJ;YbO5j3XYABU;GI01FekPBoS;nTQOr93V3ac;qrPR2citBcl;todZ8BOrQJn;dqv9OGG0hzy;tgzppnN2DsG;GCbegvX9iGe;FbWnsHV5fRr;FRbgzTZ74Hh&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringPeriods,function(json){
+	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:cOVhTyW8zN6;UH47dKFqTRK;X0luAFiy268;X9rXwlIPe5Z;acDxsQjnEof;v0WZQQ6gKAX;GxlrIgMyEf4;NywGy6uMS5r;IGVgCwUaaVz&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringPeriods,function(json){
 	   var string = "/api/analytics.json?dimension=dx:cOVhTyW8zN6;UOuRbtMVkhI;A7EalUk0veQ;SXA2Xs1o7ct;bHbGbcbNNuc;sBjxPH05QJJ;YbO5j3XYABU;GI01FekPBoS;nTQOr93V3ac;qrPR2citBcl;todZ8BOrQJn;dqv9OGG0hzy;tgzppnN2DsG;GCbegvX9iGe;FbWnsHV5fRr;FRbgzTZ74Hh&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringPeriods;
 	   console.log(string);
 		json.rows.forEach(function(row){
 		//debugger;	
 			var idSingleElement = row[0];
-			if(idSingleElement == "cOVhTyW8zN6"){
-				$("#cOVhTyW8zN6-2").text(parseInt(row[2]));	
-			}		
-				if(idSingleElement == "dqv9OGG0hzy"){
-				//debugger;
-				$("#dqv9OGG0hzy-page5").text(parseInt(row[2]));	
-			}	
-				if(idSingleElement == "tgzppnN2DsG"){
-				$("#tgzppnN2DsG-page5").text(parseInt(row[2]));	
-			}	
-				if(idSingleElement == "GCbegvX9iGe"){
-				$("#GCbegvX9iGe-page5").text(parseInt(row[2]));	
-			}	
+				
 			if($("#"+idSingleElement).length){
 				$("#"+idSingleElement).text(parseInt(row[2]));			
 			}			
 			});
 	});    
 	
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:UOuRbtMVkhI;A7EalUk0veQ;dqv9OGG0hzy;tgzppnN2DsG;GCbegvX9iGe;FbWnsHV5fRr;FRbgzTZ74Hh&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringPreviousPeriods,function(json){
-	var string = "/api/analytics.json?dimension=dx:UOuRbtMVkhI;A7EalUk0veQ;SXA2Xs1o7ct;bHbGbcbNNuc;sBjxPH05QJJ;YbO5j3XYABU;GI01FekPBoS;dqv9OGG0hzy;tgzppnN2DsG;GCbegvX9iGe;FbWnsHV5fRr;FRbgzTZ74Hh&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringPreviousPeriods;
-	console.log(string);
-		json.rows.forEach(function(row){
-		
-			var idSingleElement = row[0] +"-previous";
-			if($("#"+idSingleElement).length){
-				$("#"+idSingleElement).text(parseInt(row[2]));			
-			}
-			});
-			//flag++;
-	});
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:SXA2Xs1o7ct;YbO5j3XYABU;GI01FekPBoS;bHbGbcbNNuc;sBjxPH05QJJ&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringRefPeriods,function(json){
+	
+	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:X0luAFiy268;X9rXwlIPe5Z;acDxsQjnEof;v0WZQQ6gKAX;GxlrIgMyEf4&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringRefPeriods,function(json){
 	var string = "/api/analytics.json?dimension=dx:SXA2Xs1o7ct;YbO5j3XYABU;GI01FekPBoS;bHbGbcbNNuc;sBjxPH05QJJ&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringRefPeriods;
 	console.log(string);
 		json.rows.forEach(function(row){
@@ -200,59 +177,32 @@ function loadsurveillancedata()
 			});
 			//flag++;
 	});
-	//SXA2Xs1o7ct;YbO5j3XYABU;GI01FekPBoS;bHbGbcbNNuc;sBjxPH05QJJ
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:dqv9OGG0hzy;tgzppnN2DsG;GCbegvX9iGe;FbWnsHV5fRr;FRbgzTZ74Hh&dimension=ou:"+orgUnit.id+"&filter=pe:"+StringNextPeriods,function(json){
 	
-		json.rows.forEach(function(row){
-		
-			var idSingleElement = row[0] +"-next";
-			if($("#"+idSingleElement).length){
-				$("#"+idSingleElement).text(parseInt(row[2]));			
-			}
-			});
-			
-	});
-	
-		$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:cOVhTyW8zN6&dimension=ou:"+orgUnit.id+"&filter=pe:"+periods,function(json){
-		var string = "/api/analytics.json?dimension=dx:cOVhTyW8zN6&dimension=ou:"+orgUnit.id+"&filter=pe:"+periods;
-		console.log(string);
-		json.rows.forEach(function(row){
-		
-			var idSingleElement = row[0];
-				if(idSingleElement == "cOVhTyW8zN6"){
-				$("#cOVhTyW8zN6-2").text(parseInt(row[2]));	
-			}	
-			if($("#"+idSingleElement).length){
-				$("#"+idSingleElement).text(parseInt(row[2]));			
-			}
-			});
-			//flag++;
-	});
 	
 }
 
 function calculatepercent(){   
-	var confirmcasesreduction = ConvertToNumber($("#SXA2Xs1o7ct-previous").text()) - ConvertToNumber($("#SXA2Xs1o7ct").text());
+	var confirmcasesreduction = ConvertToNumber($("#X0luAFiy268-previous").text()) - ConvertToNumber($("#X0luAFiy268").text());
 	//debugger;
-	$("#SXA2Xs1o7ct-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(confirmcasesreduction) / ConvertToNumber($("#SXA2Xs1o7ct-previous").text()))* 100).toFixed(2));
+	$("#X0luAFiy268-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(confirmcasesreduction) / ConvertToNumber($("#X0luAFiy268-previous").text()))* 100).toFixed(2));
 	
-		var annualparasiteapireduction = ConvertToNumber($("#YbO5j3XYABU-previous").text()) - ConvertToNumber($("#YbO5j3XYABU").text());
-	$("#YbO5j3XYABU-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(annualparasiteapireduction) / ConvertToNumber($("#YbO5j3XYABU-previous").text()))* 100).toFixed(2));
+		var annualparasiteapireduction = ConvertToNumber($("#X9rXwlIPe5Z-previous").text()) - ConvertToNumber($("#X9rXwlIPe5Z").text());
+	$("#X9rXwlIPe5Z-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(annualparasiteapireduction) / ConvertToNumber($("#X9rXwlIPe5Z-previous").text()))* 100).toFixed(2));
 	
-	var tprreduction = ConvertToNumber($("#GI01FekPBoS-previous").text()) - ConvertToNumber($("#GI01FekPBoS").text());
-	$("#GI01FekPBoS-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(tprreduction) / ConvertToNumber($("#GI01FekPBoS-previous").text()))* 100).toFixed(2));
+	var tprreduction = ConvertToNumber($("#acDxsQjnEof-previous").text()) - ConvertToNumber($("#acDxsQjnEof").text());
+	$("#acDxsQjnEof-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(tprreduction) / ConvertToNumber($("#acDxsQjnEof-previous").text()))* 100).toFixed(2));
 	
-	var inpatientmalariacasesreduction = ConvertToNumber($("#bHbGbcbNNuc-previous").text()) - ConvertToNumber($("#bHbGbcbNNuc").text());
-	$("#bHbGbcbNNuc-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(inpatientmalariacasesreduction) / ConvertToNumber($("#bHbGbcbNNuc-previous").text()))* 100).toFixed(2));
+	var inpatientmalariacasesreduction = ConvertToNumber($("#v0WZQQ6gKAX-previous").text()) - ConvertToNumber($("#v0WZQQ6gKAX").text());
+	$("#v0WZQQ6gKAX-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(inpatientmalariacasesreduction) / ConvertToNumber($("#v0WZQQ6gKAX-previous").text()))* 100).toFixed(2));
 	
-	var inpatientmalariadeathsreduction = ConvertToNumber($("#sBjxPH05QJJ-previous").text()) - ConvertToNumber($("#sBjxPH05QJJ").text());
-	$("#sBjxPH05QJJ-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(inpatientmalariadeathsreduction) / ConvertToNumber($("#sBjxPH05QJJ-previous").text()))* 100).toFixed(2));
+	var inpatientmalariadeathsreduction = ConvertToNumber($("#GxlrIgMyEf4-previous").text()) - ConvertToNumber($("#GxlrIgMyEf4").text());
+	$("#GxlrIgMyEf4-reduction").text(parseFloat(ConvertToNumber(ConvertToNumber(inpatientmalariadeathsreduction) / ConvertToNumber($("#GxlrIgMyEf4-previous").text()))* 100).toFixed(2));
 	
-	legend_1($("#SXA2Xs1o7ct-reduction"));
-	legend_1($("#YbO5j3XYABU-reduction"));
-	legend_1($("#GI01FekPBoS-reduction"));
-	legend_1($("#bHbGbcbNNuc-reduction"));
-	legend_1($("#sBjxPH05QJJ-reduction"));
+	legend_1($("#X0luAFiy268-reduction"));
+	legend_1($("#X9rXwlIPe5Z-reduction"));
+	legend_1($("#acDxsQjnEof-reduction"));
+	legend_1($("#v0WZQQ6gKAX-reduction"));
+	legend_1($("#GxlrIgMyEf4-reduction"));
 	runlegend();
 }
 //   
@@ -436,43 +386,48 @@ function loadScreen_page2(orgUnit,period){
 			htmlRow += "<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;" + childOrg.name + "</td><td align='center' id='" + childOrg.id + "-pop'>-</td><td align='center' id='" + childOrg.id + "-OPDconfRef'>-</td><td align='center' id='" + childOrg.id + "-OPDconfCur'>-</td><td align='center' id='" + childOrg.id + "-OPDconfDecl'>-</td><td align='center' id='" + childOrg.id + "-incRef'>-</td><td align='center' id='" + childOrg.id + "-incCur'>-</td><td align='center' id='" + childOrg.id + "-incDecl'>-</td><td align='center' id='" + childOrg.id + "-tprRef'>-</td><td align='center' id='" + childOrg.id + "-tprCur'>-</td><td align='center' id='" + childOrg.id + "-tprDecl'>-</td><td align='center' id='" + childOrg.id + "-ABER'>-</td><td align='center' id='" + childOrg.id + "-TestedSuspected'>-</td><td align='center' id='" + childOrg.id + "-IPDconfRef'>-</td><td align='center' id='" + childOrg.id + "-IPDconfCur'>-</td><td align='center' id='" + childOrg.id + "-IPDconfDecl'>-</td><td align='center' id='" + childOrg.id + "-deathRef'>-</td><td align='center' id='" + childOrg.id + "-deathCur'>-</td><td align='center' id='" + childOrg.id + "-deathDecl'>-</td></tr>";
 			orgUnitID += ";" + childOrg.id;
 		});
-		//debugger;
+		//debugger;   id="idcate-iddataelement"   
 		$("#printing_page2 table").append(htmlRow);
 		loadValue_page2(orgUnitID,period);
 	});
-}
+}   
 
 function loadValue_page2(orgUnitID,period){
 	/*
 	cOVhTyW8zN6 Population at risk
-	SXA2Xs1o7ct Malaria confirmed cases
+	kRasaq1REFp Malaria confirmed cases
 	B5SRtq4eQPC Malaria tested cases
 	HP4ut265Jhp Suspected cases
-	bHbGbcbNNuc Inpatient malaria cases
-	sBjxPH05QJJ Inpatient malaria deaths
+	v0WZQQ6gKAX Inpatient malaria cases
+	GxlrIgMyEf4 Inpatient malaria deaths
 	*/
 	
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:SXA2Xs1o7ct;bHbGbcbNNuc;sBjxPH05QJJ&dimension=ou:" + orgUnitID + "&filter=pe:" + StringRefPeriods,function(json){
-	//var string = "/api/analytics.json?dimension=dx:SXA2Xs1o7ct;bHbGbcbNNuc;sBjxPH05QJJ&dimension=ou:" + orgUnitID + "&filter=pe:" + period[1] ;
+	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:kRasaq1REFp;v0WZQQ6gKAX;GxlrIgMyEf4;VL73cqNHxBJ;acDxsQjnEof&dimension=ou:" + orgUnitID + "&filter=pe:" + StringRefPeriods,function(json){
+	//var string = "/api/analytics.json?dimension=dx:kRasaq1REFp;v0WZQQ6gKAX;GxlrIgMyEf4&dimension=ou:" + orgUnitID + "&filter=pe:" + period[1] ;
 	//console.log(string);
 		json.rows.forEach(function(row){
-			if(row[0] == 'SXA2Xs1o7ct') $("#" + row[1] + "-OPDconfRef").text(parseInt(row[2]));
-			if(row[0] == 'bHbGbcbNNuc') $("#" + row[1] + "-IPDconfRef").text(parseInt(row[2]));
-			if(row[0] == 'sBjxPH05QJJ') $("#" + row[1] + "-deathRef").text(parseInt(row[2]));
+			if(row[0] == 'kRasaq1REFp') $("#" + row[1] + "-OPDconfRef").text(parseInt(row[2]));
+			if(row[0] == 'v0WZQQ6gKAX') $("#" + row[1] + "-IPDconfRef").text(parseInt(row[2]));
+			if(row[0] == 'GxlrIgMyEf4') $("#" + row[1] + "-deathRef").text(parseInt(row[2]));
+			if(row[0] == 'VL73cqNHxBJ') $("#" + row[1] + "-incRef").text(parseInt(row[2]));
+			if(row[0] == 'acDxsQjnEof') $("#" + row[1] + "-tprRef").text(parseInt(row[2]));
+			// 
 		});
 		calDecline(json.metaData.ou);
 	});
 	
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:cOVhTyW8zN6;SXA2Xs1o7ct;B5SRtq4eQPC;HP4ut265Jhp;bHbGbcbNNuc;sBjxPH05QJJ&dimension=ou:" + orgUnitID + "&filter=pe:" + StringPeriods,function(json){
-	//var string = "/api/analytics.json?dimension=dx:cOVhTyW8zN6;SXA2Xs1o7ct;B5SRtq4eQPC;HP4ut265Jhp;bHbGbcbNNuc;sBjxPH05QJJ&dimension=ou:" + orgUnitID + "&filter=pe:" + period[0] ;
-	//console.log(string);
+	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:cOVhTyW8zN6;kRasaq1REFp;B5SRtq4eQPC;HP4ut265Jhp;v0WZQQ6gKAX;GxlrIgMyEf4;VL73cqNHxBJ;acDxsQjnEof;yroBt9wWrhx&dimension=ou:" + orgUnitID + "&filter=pe:" + StringPeriods,function(json){
+	//var string = "/api/analytics.json?dimension=dx:cOVhTyW8zN6;kRasaq1REFp;B5SRtq4eQPC;HP4ut265Jhp;v0WZQQ6gKAX;GxlrIgMyEf4&dimension=ou:" + orgUnitID + "&filter=pe:" + period[0] ;
+	//console.log(string);  
 		json.rows.forEach(function(row){
 			if(row[0] == 'cOVhTyW8zN6') $("#" + row[1] + "-pop").text(parseInt(row[2]));
-			if(row[0] == 'SXA2Xs1o7ct') $("#" + row[1] + "-OPDconfCur").text(parseInt(row[2]));
-			//if(row[0] == 'B5SRtq4eQPC') $("#" + row[1] + "-pop").text(row[2]);
-			if(row[0] == 'HP4ut265Jhp') calTestedSuspected(row,json.rows);
-			if(row[0] == 'bHbGbcbNNuc') $("#" + row[1] + "-IPDconfCur").text(parseInt(row[2]));
-			if(row[0] == 'sBjxPH05QJJ') $("#" + row[1] + "-deathCur").text(parseInt(row[2]));
+			if(row[0] == 'kRasaq1REFp') $("#" + row[1] + "-OPDconfCur").text(parseInt(row[2]));
+			if(row[0] == 'VL73cqNHxBJ') $("#" + row[1] + "-incCur").text(parseInt(row[2]));
+			if(row[0] == 'acDxsQjnEof') $("#" + row[1] + "-tprCur").text(parseInt(row[2]));		
+			if(row[0] == 'yroBt9wWrhx') $("#" + row[1] + "-ABER").text(row[2]);
+			//if(row[0] == 'HP4ut265Jhp') calTestedSuspected(row,json.rows);
+			if(row[0] == 'v0WZQQ6gKAX') $("#" + row[1] + "-IPDconfCur").text(parseInt(row[2]));
+			if(row[0] == 'GxlrIgMyEf4') $("#" + row[1] + "-deathCur").text(parseInt(row[2]));
 		});
 		calDecline(json.metaData.ou);
 	});
@@ -482,6 +437,10 @@ function calDecline(orgs){
 	orgs.forEach(function(org){
 		var OPDconfRef = parseInt($("#" + org + "-OPDconfRef").text());
 		var OPDconfCur = parseInt($("#" + org + "-OPDconfCur").text());
+		var incRef = parseInt($("#" + org + "-incRef").text());
+		var incCur = parseInt($("#" + org + "-incCur").text());
+		var tprRef = parseInt($("#" + org + "-tprRef").text());
+		var tprCur = parseInt($("#" + org + "-tprCur").text());
 		var IPDconfRef = parseInt($("#" + org + "-IPDconfRef").text());
 		var IPDconfCur = parseInt($("#" + org + "-IPDconfCur").text());
 		var deathRef = parseInt($("#" + org + "-deathRef").text());
@@ -499,9 +458,22 @@ function calDecline(orgs){
 		else if ( deathRef == 0 || deathRef < deathCur ) $("#" + org + "-deathDecl").text("-");
 		else $("#" + org + "-deathDecl").text(parseInt(((deathRef-deathCur)/deathRef)*100));
 		
+		if( isNaN(incRef) || isNaN(incCur) ) $("#" + org + "-incDecl").text("-");
+		else if ( incRef == 0 || incRef < incCur ) $("#" + org + "-incDecl").text("-");
+		else $("#" + org + "-incDecl").text(parseInt(((incRef-incCur)/incRef)*100));
+		
+		if( isNaN(tprRef) || isNaN(tprCur) ) $("#" + org + "-tprDecl").text("-");
+		else if ( tprRef == 0 || tprRef < tprCur ) $("#" + org + "-tprDecl").text("-");
+		else $("#" + org + "-tprDecl").text(parseInt(((tprRef-tprCur)/tprRef)*100));
+		
+		
+		
 		legend_Decline($("#" + org + "-OPDconfDecl"));
 		legend_Decline($("#" + org + "-IPDconfDecl"));
 		legend_Decline($("#" + org + "-deathDecl"));
+		legend_Decline($("#" + org + "-incDecl"));
+		legend_Decline($("#" + org + "-tprDecl"));
+		//  
 	});
 }
 
@@ -637,32 +609,42 @@ function loadReport_page4(period){
 }
 
 function loadScreen_page4(orgUnit,period){
-	var htmlRow = "<tr class='subTotal'><td>" + orgUnit.name + "</td><td align='center' id='" + orgUnit.id + "-IVf0LfRTMw7-AKjxxgkRszX'>-</td><td align='center' id='" + orgUnit.id + "-cEKPBNNMixF-AKjxxgkRszX'>-</td><td align='center' id='" + orgUnit.id + "-jTaNUBlNKno'>-</td><td align='center' id='" + orgUnit.id + "-IVf0LfRTMw7-IeidctLwvlG'>-</td><td align='center' id='" + orgUnit.id + "-cEKPBNNMixF-IeidctLwvlG'>-</td><td align='center' id='" + orgUnit.id + "-oxchlsKmCsw'>-</td><td align='center' id='" + orgUnit.id + "-IVf0LfRTMw7-xxetaGJsy2G'>-</td><td align='center' id='" + orgUnit.id + "-cEKPBNNMixF-xxetaGJsy2G'>-</td><td align='center' id='" + orgUnit.id + "-Mrrq4nvR3eI'>-</td><td align='center' id='" + orgUnit.id + "-IVf0LfRTMw7-AAHlcRlwnGN'>-</td><td align='center' id='" + orgUnit.id + "-cEKPBNNMixF-AAHlcRlwnGN'>-</td><td align='center' id='" + orgUnit.id + "-FhHSklU7riQ'>-</td></tr>";
+	var htmlRow = "<tr class='subTotal'><td>" + orgUnit.name + "</td><td align='center' id='" + orgUnit.id + "-cOVhTyW8zN6'>-</td><td align='center' id='" + orgUnit.id + "-cEKPBNNMixF-AKjxxgkRszX'>-</td><td align='center' id='" + orgUnit.id + "-jTaNUBlNKno'>-</td><td align='center' id='" + orgUnit.id + "-IVf0LfRTMw7-IeidctLwvlG'>-</td><td align='center' id='" + orgUnit.id + "-cEKPBNNMixF-IeidctLwvlG'>-</td><td align='center' id='" + orgUnit.id + "-oxchlsKmCsw'>-</td><td align='center' id='" + orgUnit.id + "-IVf0LfRTMw7-xxetaGJsy2G'>-</td><td align='center' id='" + orgUnit.id + "-l7gcisIvTBN'>-</td><td align='center' id='" + orgUnit.id + "-Mrrq4nvR3eI'>-</td><td align='center' id='" + orgUnit.id + "-IVf0LfRTMw7-AAHlcRlwnGN'>-</td><td align='center' id='" + orgUnit.id + "-iaQuylCoH3u'>-</td><td align='center' id='" + orgUnit.id + "-FhHSklU7riQ'>-</td><td align='center' id='" + orgUnit.id + "-UH47dKFqTRK'>-</td><td align='center' id='" + orgUnit.id + "-A1o8U4zmzvA'>-</td><td align='center' id='" + orgUnit.id + "-NywGy6uMS5r'>-</td><td align='center' id='" + orgUnit.id + "-IGVgCwUaaVz'>-</td></tr>";
 	var orgUnitID = orgUnit.id;
 	$.get("https://dhis2.asia/erar/api/organisationUnits/" + orgUnit.id + ".json?fields=children[id,name]", function(json){
 		sortAfbe(json.children);
 		json.children.forEach(function(childOrg){
-			htmlRow += "<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;" + childOrg.name + "</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-AKjxxgkRszX'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-AKjxxgkRszX'>-</td><td align='center' id='" + childOrg.id + "-jTaNUBlNKno'>-</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-IeidctLwvlG'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-IeidctLwvlG'>-</td><td align='center' id='" + childOrg.id + "-oxchlsKmCsw'>-</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-xxetaGJsy2G'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-xxetaGJsy2G'>-</td><td align='center' id='" + childOrg.id + "-Mrrq4nvR3eI'>-</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-AAHlcRlwnGN'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-AAHlcRlwnGN'>-</td><td align='center' id='" + childOrg.id + "-FhHSklU7riQ'>-</td></tr>";
+			htmlRow += "<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;" + childOrg.name + "</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-AKjxxgkRszX'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-AKjxxgkRszX'>-</td><td align='center' id='" + childOrg.id + "-jTaNUBlNKno'>-</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-IeidctLwvlG'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-IeidctLwvlG'>-</td><td align='center' id='" + childOrg.id + "-oxchlsKmCsw'>-</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-xxetaGJsy2G'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-xxetaGJsy2G'>-</td><td align='center' id='" + childOrg.id + "-Mrrq4nvR3eI'>-</td><td align='center' id='" + childOrg.id + "-IVf0LfRTMw7-AAHlcRlwnGN'>-</td><td align='center' id='" + childOrg.id + "-cEKPBNNMixF-AAHlcRlwnGN'>-</td><td align='center' id='" + childOrg.id + "-FhHSklU7riQ'>-</td><td align='center' id='" + childOrg.id + "-UH47dKFqTRK'>-</td><td align='center' id='" + childOrg.id + "-A1o8U4zmzvA'>-</td><td align='center' id='" + childOrg.id + "-NywGy6uMS5r'>-</td><td align='center' id='" + childOrg.id + "-IGVgCwUaaVz'>-</td></tr>";
 			orgUnitID += ";" + childOrg.id;
 		});
-		$("#printing_page4 table").append(htmlRow);
+		$("#printing_page3 table").append(htmlRow);
 		loadDEValue_page4(orgUnitID,period);
 	});
 }
 
 function loadDEValue_page4(orgUnitID,period){
 	
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:cEKPBNNMixF;IVf0LfRTMw7&dimension=co&dimension=ou:" + orgUnitID + "&filter=pe:" + StringPeriods,function(json){
-		json.rows.forEach(function(row){
-			$("#"+row[2]+"-"+row[0]+"-"+row[1]).text(row[3]);
+	//$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:cEKPBNNMixF;IVf0LfRTMw7&dimension=co&dimension=ou:" + orgUnitID + "&filter=pe:" + StringPeriods,function(json){
+		//json.rows.forEach(function(row){
+			//$("#"+row[2]+"-"+row[0]+"-"+row[1]).text(row[3]);
 			//legend_page4($("#"+row[2]+"-"+row[0]+"-"+row[1]));
-		});
-	});
+		//});
+	//});
 	
-	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:FhHSklU7riQ;Mrrq4nvR3eI;oxchlsKmCsw;jTaNUBlNKno&dimension=ou:" + orgUnitID + "&filter=pe:" + StringPeriods,function(json){
+	//$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:FhHSklU7riQ;Mrrq4nvR3eI;oxchlsKmCsw;jTaNUBlNKno&dimension=ou:" + orgUnitID + "&filter=pe:" + StringPeriods,//function(json){
+		//json.rows.forEach(function(row){
+			//$("#"+row[1]+"-"+row[0]).text(row[2]);
+			//legend_page4($("#"+row[1]+"-"+row[0]));
+		//});
+	//});
+	//l7gcisIvTBN;iaQuylCoH3u;UH47dKFqTRK;A1o8U4zmzvA;NywGy6uMS5r;IGVgCwUaaVz
+	$.get("https://dhis2.asia/erar/api/analytics.json?dimension=dx:cOVhTyW8zN6;l7gcisIvTBN;iaQuylCoH3u;UH47dKFqTRK;A1o8U4zmzvA;NywGy6uMS5r;IGVgCwUaaVz&dimension=ou:" + orgUnitID + "&filter=pe:" + StringPeriods,function(json){
 		json.rows.forEach(function(row){
 			$("#"+row[1]+"-"+row[0]).text(row[2]);
-			legend_page4($("#"+row[1]+"-"+row[0]));
+			if(row[0] == "A1o8U4zmzvA" || row[0] == "IGVgCwUaaVz"){
+				legend_page4($("#"+row[1]+"-"+row[0]));
+			}
+			
 		});
 	});
 }
